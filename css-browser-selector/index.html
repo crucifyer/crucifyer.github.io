@@ -100,7 +100,8 @@
 		</tr>
 		<tr>
 			<td>color</td>
-			<td><input type="color" placeholder="color" /></td>
+			<td><input type="color" placeholder="color" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>search</td>
@@ -112,31 +113,38 @@
 		</tr>
 		<tr>
 			<td>date</td>
-			<td><input type="date" placeholder="date" /></td>
+			<td><input type="date" placeholder="date" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>datetime</td>
-			<td><input type="datetime" placeholder="datetime" /></td>
+			<td><input type="datetime" placeholder="datetime" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>datetime-local</td>
-			<td><input type="datetime-local" placeholder="datetime-local" /></td>
+			<td><input type="datetime-local" placeholder="datetime-local" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>time</td>
-			<td><input type="time" placeholder="time" /></td>
+			<td><input type="time" placeholder="time" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>month</td>
-			<td><input type="month" placeholder="month" /></td>
+			<td><input type="month" placeholder="month" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>week</td>
-			<td><input type="week" placeholder="week" min="2012-W20" max="2012-W30" /></td>
+			<td><input type="week" placeholder="week" min="2012-W20" max="2012-W30" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>range</td>
-			<td><input type="range" placeholder="range" min="1" max="11" step="2" /></td>
+			<td><input type="range" placeholder="range" min="1" max="11" step="2" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>number</td>
@@ -177,7 +185,8 @@
 		</tr>
 		<tr>
 			<td>color</td>
-			<td><input type="color" placeholder="color" /></td>
+			<td><input type="color" placeholder="color" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>search</td>
@@ -189,31 +198,38 @@
 		</tr>
 		<tr>
 			<td>date</td>
-			<td><input type="date" placeholder="date" /></td>
+			<td><input type="date" placeholder="date" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>datetime</td>
-			<td><input type="datetime" placeholder="datetime" /></td>
+			<td><input type="datetime" placeholder="datetime" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>datetime-local</td>
-			<td><input type="datetime-local" placeholder="datetime-local" /></td>
+			<td><input type="datetime-local" placeholder="datetime-local" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>time</td>
-			<td><input type="time" placeholder="time" /></td>
+			<td><input type="time" placeholder="time" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>month</td>
-			<td><input type="month" placeholder="month" /></td>
+			<td><input type="month" placeholder="month" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>week</td>
-			<td><input type="week" placeholder="week" min="2012-W20" max="2012-W30" /></td>
+			<td><input type="week" placeholder="week" min="2012-W20" max="2012-W30" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>range</td>
-			<td><input type="range" placeholder="range" min="1" max="11" step="2" /></td>
+			<td><input type="range" placeholder="range" min="1" max="11" step="2" class="showResult" /></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>number</td>
@@ -245,8 +261,12 @@
 		$(function() {
 			$('#userAgent').html(navigator.userAgent);
 			showInfo();
-			$(document.body).bind('orientationchange', showInfo);
-			$(window).bind('resize', showInfo);
+			$(d.body).bind('orientationchange', showInfo);
+			$(w).bind('resize', showInfo);
+
+			$('.showResult').on('click change keyup', function() {
+				$(this.parentNode).next().text(this.value);
+			}).trigger('change');
 		});
 	})(window, document, jQuery, document.documentElement);
 </script>
