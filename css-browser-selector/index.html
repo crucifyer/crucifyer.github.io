@@ -264,7 +264,7 @@
 		}
 		$(function() {
 			$('#userAgent').html(navigator.userAgent);
-			setTimeout(showInfo, 500);
+			setInterval(showInfo, 500);
 
 			$('.showResult').on('click change keyup', function() {
 				$(this.parentNode).next().text(this.value);
