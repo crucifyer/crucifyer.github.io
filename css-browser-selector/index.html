@@ -266,7 +266,7 @@
 			$('#userAgent').html(navigator.userAgent);
 			showInfo();
 			$(d.body).bind('orientationchange', showInfo);
-			$(w).bind('resize', showInfo);
+			$(w).bind('resize scroll', showInfo);
 
 			$('.showResult').on('click change keyup', function() {
 				$(this.parentNode).next().text(this.value);
