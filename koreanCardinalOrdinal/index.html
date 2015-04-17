@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>requirejs test</title>
+<script src="/require/require.js"></script>
+<script src="/require/dep.js"></script><!-- data-main 속성 이용시 본문에서 require() 를 호출하기 전에 호출이 안될 수 있음 -->
+</head>
+<body>
+<p class="DoFormat">12341234</p>
+<p class="DoPad" data-length="8">34727</p>
+<p class="DoCardinal">29874</p>
+<p class="DoOrdinal" data-type="1" data-unit="번째">200371</p>
+<p class="DoOrdinal" data-type="1" data-unit="개">2837</p>
+<p class="DoOrdinal" data-type="1" data-unit="째">13</p>
+<p class="DoOrdinal" data-type="1">3452</p>
+<p class="DoOrdinal" data-type="2" data-unit="번째">1091230</p>
+<p class="DoOrdinal" data-type="2" data-unit="째">1002</p>
+<p class="DoOrdinal" data-type="2">101</p>
+<p class="DoOrdinal" data-type="1">1</p>
+<p class="DoOrdinal" data-type="2">1</p>
+<p class="DoOrdinal" data-type="2">5</p>
+
+<script>
+require(['jquery', 'xeno/fmt', 'xeno/fmt.ordinal'], function($, fmt, fmtord) {
+	$('.DoFormat').each(function() {
+		$(this).text(
+			fmt.format($(this).text())
+		);
+	});
+	$('.DoPad').each(function() {
+		$(this).text(
+			fmt.strpad($(this).text(), $(this).data('length') * 1)
+		);
+	});
+	$('.DoCardinal').each(function() {
+		this.title = this.innerHTML;
+		$(this).text(
+			fmtord.toCardinal($(this).text())
+		);
+	});
+	$('.DoOrdinal').each(function() {
+		this.title = this.innerHTML;
+		$(this).text(
+			fmtord.toOrdinal($(this).text(), $(this).data('type'), $(this).data('unit'))
+		);
+	});
+});
+</script>
+</body>
+</html>
