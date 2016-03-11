@@ -19,13 +19,13 @@ define(function() {
 		})(),
 		mplui = {
 			tel: function(tel) {
-				return 'tel:' + tel;
+				return 'tel:' + tel.replace(/[^\d]+/g, '');
 			},
 			$tel: function() {
 				this.href = mplui.tel($(this).text());
 			},
 			sms: function(sms, body) {
-				var res = 'sms:' + sms;
+				var res = 'sms:' + sms.replace(/[^\d]+/g, '');
 				if(body) res += s + 'body=' + body;
 				return res;
 			},
