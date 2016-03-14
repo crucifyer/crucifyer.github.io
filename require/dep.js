@@ -13,7 +13,7 @@
 			"libb": "liba" // 이렇게 하면 require(['libb'] 했을 때 자동으로 liba 까지 로딩함.
 			*/
 		},
-		"urlArgs": "20160312"
+		"urlArgs": "20160313"
 	});
 
 	require(['jquery'], function($) {
