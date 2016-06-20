@@ -6,14 +6,14 @@
 	requirejs.config({
 		"baseUrl": "/require",
 		"paths": {
-			"jquery": "//code.jquery.com/jquery-" + (oldie ? "1.12.1" : "2.2.1") + ".min"
+			"jquery": "//code.jquery.com/jquery-" + (oldie ? "1.12.1" : "3.0.0") + ".min"
 		},
 		"shim": {
 			/*
 			"libb": "liba" // 이렇게 하면 require(['libb'] 했을 때 자동으로 liba 까지 로딩함.
 			*/
 		},
-		"urlArgs": "20160313"
+		"urlArgs": "20160620"
 	});
 
 	require(['jquery'], function($) {
