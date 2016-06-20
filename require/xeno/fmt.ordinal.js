@@ -2,8 +2,6 @@
 // +--------------------------------------------------------+
 // | Copyright : Song Hyo-Jin <shj at xenosi.de>            |
 // +--------------------------------------------------------+
-// | Number to Ordinal Cardinal Korean Converter            |
-// +--------------------------------------------------------+
 // | License : MIT                                          |
 // +--------------------------------------------------------+
 //
@@ -24,20 +22,13 @@ define(function() {
 				if(n.length > 80) return '무한';
 				var r = [];
 				for(var i = 0; i < n.length - 1; i ++) {
-					if(n[i] > '1') r.push(num[n[i] * 1]);
 					var d = n.length - i - 1;
+					if(n[i] > '1' || d % 4 == 0) r.push(num[n[i] * 1]);
 					if(d % 4 == 0) r.push(digits[d / 4]);
 					if(n[i] != '0') r.push(cardinal[d % 4]);
 				}
 				r.push(num[n[n.length - 1] * 1]);
 				return r.join('');
-			},
-			$cardinal: function() {
-				var t = $(this).text();
-				this.title = t;
-				$(this).text(
-					fmt.toCardinal(t)
-				);
 			},
 			toOrdinal : function(n, type, unit) {
 				n += '';
@@ -64,13 +55,6 @@ define(function() {
 				);
 				r.push(unit);
 				return r.join('');
-			},
-			$ordinal: function() {
-				var t = $(this).text();
-				this.title = t;
-				$(this).text(
-					fmt.toOrdinal(t, $(this).data('type'), $(this).data('unit'))
-				);
 			}
 		};
 	return fmt;
