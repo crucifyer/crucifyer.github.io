@@ -1,1 +1,1 @@
-just go http://crucifyer.github.io/
+just go https://crucifyer.github.io/
