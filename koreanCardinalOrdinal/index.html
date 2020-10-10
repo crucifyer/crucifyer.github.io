@@ -11,6 +11,12 @@
 <div id="container">
 	<input type="number" v-model="numeric">
 	<p>{{ordinary}}</p>
+	<p>{{ordinary(1, '번째')}}</p>
+	<p>{{ordinary(1, '개')}}</p>
+	<p>{{ordinary(1, '째')}}</p>
+	<p>{{ordinary(2)}}</p>
+	<p>{{ordinary(2, '번째')}}</p>
+	<p>{{ordinary(2, '째')}}</p>
 	<p>{{cardinary}}</p>
 </div>
 
@@ -21,8 +27,8 @@
 		Vue.createApp({
 			data() { return {numeric:"28372346"}; },
 			computed: {
-				ordinary: function() {
-					return FmtOrdinal.toOrdinal(this.numeric);
+				ordinary: function(type, unit) {
+					return FmtOrdinal.toOrdinal(this.numeric, type, unit);
 				},
 				cardinary: function() {
 					return FmtOrdinal.toCardinal(this.numeric);
