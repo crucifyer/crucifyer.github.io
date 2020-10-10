@@ -10,7 +10,7 @@
 <body>
 <div id="container">
 	<input type="number" v-model="numeric">
-	<p>{{ordinary}}</p>
+	<p>{{ordinary()}}</p>
 	<p>{{ordinary(1, '번째')}}</p>
 	<p>{{ordinary(1, '개')}}</p>
 	<p>{{ordinary(1, '째')}}</p>
@@ -28,7 +28,7 @@
 			data() { return { numeric:"1234" }; },
 			computed: {
 				ordinary() {
-					return (type = 1, unit = '') => { return FmtOrdinal.toOrdinal(this.numeric, type, unit); };
+					return (type, unit) => { return FmtOrdinal.toOrdinal(this.numeric, type, unit); };
 				},
 				cardinary() {
 					return FmtOrdinal.toCardinal(this.numeric);
