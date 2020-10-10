@@ -28,7 +28,7 @@
 			data() { return {numeric:"28372346"}; },
 			computed: {
 				ordinary() {
-					return (type, unit) => { FmtOrdinal.toOrdinal(this.numeric, type, unit) };
+					return (type, unit) => { return FmtOrdinal.toOrdinal(this.numeric, type, unit); };
 				},
 				cardinary() {
 					return FmtOrdinal.toCardinal(this.numeric);
