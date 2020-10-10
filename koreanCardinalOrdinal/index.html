@@ -25,7 +25,7 @@
 <script>
 	(function(w, d, undefined) {
 		Vue.createApp({
-			data() { return { numeric:"1234" }; },
+			data() { return { numeric:"1" }; },
 			computed: {
 				ordinary() {
 					return (type, unit) => { return FmtOrdinal.toOrdinal(this.numeric, type, unit); };
