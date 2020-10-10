@@ -25,9 +25,10 @@
 <script>
 	(function(w, d, undefined) {
 		Vue.createApp({
-			data() { return {numeric:"28372346"}; },
+			data() { return {numeric:"1234"}; },
 			computed: {
 				ordinary() {
+					if(arguments.length == 0) return FmtOrdinal.toOrdinal(this.numeric);
 					return (type, unit) => { return FmtOrdinal.toOrdinal(this.numeric, type, unit); };
 				},
 				cardinary() {
