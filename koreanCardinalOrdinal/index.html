@@ -8,21 +8,31 @@
 	<title>Cardinal Ordinal test</title>
 </head>
 <body>
-<p class="DoXeno" data-class="fmt" data-method="format">12341234</p>
-<p class="DoXeno" data-class="fmt" data-method="strpad" data-length="8">34727</p>
-<p class="DoXeno" data-class="fmt.ordinal" data-method="cardinal">29874</p>
-<p class="DoXeno" data-class="fmt.ordinal" data-method="ordinal" data-type="1" data-unit="번째">200371</p>
-<p class="DoXeno" data-class="fmt.ordinal" data-method="ordinal" data-type="1" data-unit="개">2837</p>
-<p class="DoXeno" data-class="fmt.ordinal" data-method="ordinal" data-type="1" data-unit="째">13</p>
-<p class="DoXeno" data-class="fmt.ordinal" data-method="ordinal" data-type="1">3452</p>
-<p class="DoXeno" data-class="fmt.ordinal" data-method="ordinal" data-type="2" data-unit="번째">1091230</p>
-<p class="DoXeno" data-class="fmt.ordinal" data-method="ordinal" data-type="2" data-unit="째">1002</p>
-<p class="DoXeno" data-class="fmt.ordinal" data-method="ordinal" data-type="2">111111</p>
-<p class="DoXeno" data-class="fmt.ordinal" data-method="ordinal" data-type="2">11111</p>
-<p class="DoXeno" data-class="fmt.ordinal" data-method="ordinal" data-type="1">1</p>
-<p class="DoXeno" data-class="fmt.ordinal" data-method="ordinal" data-type="2">1</p>
-<p class="DoXeno" data-class="fmt.ordinal" data-method="ordinal" data-type="2">5</p>
-<script src="/require/require.js"></script>
-<script src="/require/dep.js"></script><!-- data-main 속성 이용시 본문에서 require() 를 호출하기 전에 호출이 안될 수 있음 -->
+<div id="container">
+	<input type="number" v-model="numeric">
+	<p>{{ordinary}}</p>
+	<p>{{cardinary}}</p>
+</div>
+
+<script src="/require/xeno/fmt.ordinal.min.js"></script>
+<script src="https://unpkg.com/vue@3.0.0/dist/vue.global.prod.js"></script>
+<script>
+	(function(w, d, undefined) {
+		Vue.createApp({
+			data() { return {numeric:"28372346"}; },
+			computed: {
+				ordinary: function() {
+					return FmtOrdinal.toOrdinal(this.numeric);
+				},
+				cardinary: function() {
+					return FmtOrdinal.toCardinal(this.numeric);
+				}
+			}
+		}).mount('#container');
+	})(window, document);
+</script>
+
+<hr>
+<a href="requirejs.html">require.js example</a>
 </body>
 </html>
