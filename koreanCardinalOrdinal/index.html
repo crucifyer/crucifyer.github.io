@@ -27,10 +27,10 @@
 		Vue.createApp({
 			data() { return {numeric:"28372346"}; },
 			computed: {
-				ordinary: function(type, unit) {
-					return FmtOrdinal.toOrdinal(this.numeric, type, unit);
+				ordinary() {
+					return (type, unit) => { FmtOrdinal.toOrdinal(this.numeric, type, unit) };
 				},
-				cardinary: function() {
+				cardinary() {
 					return FmtOrdinal.toCardinal(this.numeric);
 				}
 			}
