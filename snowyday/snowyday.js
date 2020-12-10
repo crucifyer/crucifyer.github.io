@@ -38,7 +38,7 @@
 		d.body.appendChild(flake);
 		flake._idx = setInterval(function() {
 			flake._stepx = Math.max(Math.min(flake._stepx + Math.random() * 1 - .5, 2), -2);
-			flake._stepy = Math.min(flake._stepy + Math.random() * 1, 1);
+			flake._stepy = Math.min(flake._stepy + Math.random() * 1, 2);
 			flake._x += flake._stepx;
 			flake._y += flake._stepy;
 			if(flake._x <= offsetx) flake._x = sizex + offsetx;
