@@ -1,15 +1,16 @@
 (function(w, d) {
 	let objCnt = 0, max = 0, objBox = d.createElement('div'), snowFlake, makeInterval, animateInterval, offsetx, sizex, offsety, sizey;
 
-	function detectScreenSize() {
+	function detectScreenOffset() {
 		offsetx = d.documentElement.scrollLeft;
 		sizex = d.documentElement.clientWidth - 20;
 		offsety = d.documentElement.scrollTop;
 		sizey = d.documentElement.clientHeight - 20;
 	}
-	w.addEventListener('resize', detectScreenSize);
-	w.addEventListener('load', detectScreenSize);
-	setTimeout(detectScreenSize, 1000);
+	w.addEventListener('resize', detectScreenOffset);
+	w.addEventListener('scroll', detectScreenOffset);
+	w.addEventListener('load', detectScreenOffset);
+	setTimeout(detectScreenOffset, 1000);
 
 	function snowflakeRemove(flake) {
 		flake.className = 'snowflakeRemove';
