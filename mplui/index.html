@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Mobile Phone Link Unified Interface test</title>
+</head>
+<body>
+<div id="o">
+	<a class="tel" data-number="010-4545-5656">call</a><br>
+	<a class="sms" data-number="010-4545-5656">sms</a><br>
+	<a class="sms" data-number="010-4545-5656" data-text="text message">sms with message</a><br>
+	<hr>
+	<p>iOS safari bug</p>
+	<a class="sms" data-number="010-4545-5656" data-text="text message">010-4545-5656</a><br>
+	<p>낮은 버전의 아이폰 사파리에서 내용에 전화번호가 있으면 동적으로 href 에 sms: 로 링크를 걸었을 때 sms 로 인식하지 못하고 전화걸기로 동작합니다.</p>
+</div>
+<xmp id="t"></xmp>
+<script src="/require/require.js"></script>
+<script src="/require/dep.js"></script><!-- data-main 속성 이용시 본문에서 require() 를 호출하기 전에 호출이 안될 수 있음 -->
+<script>
+	require(['xeno/mplui'], function(mplui) {
+		mplui.tel(document.querySelectorAll('.tel'));
+		mplui.sms(document.querySelectorAll('.sms'));
+	});
+
+	setTimeout(function() {
+		$('#t').text($('#o').html());
+	}, 1000);
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9886974022990679" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64306005-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-64306005-1');
+</script>
+</body>
+</html>

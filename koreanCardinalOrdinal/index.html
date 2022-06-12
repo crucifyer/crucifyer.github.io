@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Cardinal Ordinal test</title>
+</head>
+<body>
+<div id="container">
+	<input type="number" v-model="numeric">
+	<p>{{ordinary()}}</p>
+	<p>{{ordinary(1, '번째')}}</p>
+	<p>{{ordinary(1, '개')}}</p>
+	<p>{{ordinary(1, '째')}}</p>
+	<p>{{ordinary(2)}}</p>
+	<p>{{ordinary(2, '번째')}}</p>
+	<p>{{ordinary(2, '째')}}</p>
+	<p>{{cardinary}}</p>
+</div>
+
+<script src="/require/xeno/fmt.ordinal.min.js"></script>
+<script src="https://unpkg.com/vue@3.0.0/dist/vue.global.prod.js"></script>
+<script>
+	(function(w, d, undefined) {
+		Vue.createApp({
+			data() { return { numeric:"1" }; },
+			computed: {
+				ordinary() {
+					return (type, unit) => { return FmtOrdinal.toOrdinal(this.numeric, type, unit); };
+				},
+				cardinary() {
+					return FmtOrdinal.toCardinal(this.numeric);
+				}
+			}
+		}).mount('#container');
+	})(window, document);
+</script>
+
+<hr>
+<a href="requirejs.html">require.js example</a>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9886974022990679" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64306005-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-64306005-1');
+</script>
+</body>
+</html>
