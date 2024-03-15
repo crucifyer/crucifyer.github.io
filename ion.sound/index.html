@@ -41,7 +41,9 @@
 	});
 	[...document.getElementsByTagName('button')].forEach(button => {
 		button.addEventListener('click', () => {
-			ion.sound.play(button.getAttribute('data-sound'));
+			let data = button.getAttribute('data-sound');
+			ion.sound.stop(data);
+			ion.sound.play(data);
 		});
 	});
 </script>
