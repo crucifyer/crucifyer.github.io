@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>ion.sound fork</title>
+</head>
+<body>
+<button data-sound="bell_ring">
+	Bell Ring
+</button>
+<button data-sound="button_tiny">
+	Button Tiny
+</button>
+<button data-sound="door_bell">
+	Door Bell
+</button>
+<button data-sound="metal_plate">
+	Metal Plate
+</button>
+
+<script src="ion.sound.min.js"></script>
+<script>
+	ion.sound({
+		sounds: [
+			{
+				name: "bell_ring"
+			},
+			{
+				name: "button_tiny"
+			},
+			{
+				name: "door_bell"
+			},
+			{
+				name: "metal_plate"
+			}
+		],
+		volume: 0.5,
+		preload: true,
+	});
+	[...document.getElementsByTagName('button')].forEach(button => {
+		button.addEventListener('click', () => {
+			ion.sound.play(button.getAttribute('data-sound'));
+		});
+	});
+</script>
+</body>
+</html>
