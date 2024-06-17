@@ -19,13 +19,13 @@
 		],
 		largeordinal = ['', '열', '스물', '서른', '마흔', '쉰', '예순', '일흔', '여든', '아흔'],
 		fmt = {
-			toCardinal : function(n, pronunOne) {
+			toCardinal : function(n, pronunFirstOne) {
 				n += '';
 				if(n.length > 80) return '무한';
 				var r = [];
 				for(var i = 0; i < n.length - 1; i ++) {
 					var d = n.length - i - 1;
-					if((n[i] > '1' || pronunOne) || (i > 0 && d % 4 == 0)) r.push(num[n[i] * 1]);
+					if(n[i] > '1' || (i > 0 && d % 4 == 0) || (pronunFirstOne && i == 0)) r.push(num[n[i] * 1]);
 					if(d % 4 == 0) r.push(digits[d / 4]);
 					if(n[i] != '0') r.push(cardinal[d % 4]);
 				}
