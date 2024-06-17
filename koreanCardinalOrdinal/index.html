@@ -32,7 +32,7 @@
 					return (type, unit) => { return FmtOrdinal.toOrdinal(this.numeric, type, unit); };
 				},
 				cardinary() {
-					return pronunOne => FmtOrdinal.toCardinal(this.numeric, pronunOne);
+					return pronunFirstOne => FmtOrdinal.toCardinal(this.numeric, pronunFirstOne);
 				}
 			}
 		}).mount('#container');
