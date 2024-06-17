@@ -10,14 +10,15 @@
 <body>
 <div id="container">
 	<input type="number" v-model="numeric">
-	<p>{{ordinary()}}</p>
-	<p>{{ordinary(1, '번째')}}</p>
-	<p>{{ordinary(1, '개')}}</p>
-	<p>{{ordinary(1, '째')}}</p>
-	<p>{{ordinary(2)}}</p>
-	<p>{{ordinary(2, '번째')}}</p>
-	<p>{{ordinary(2, '째')}}</p>
-	<p>{{cardinary}}</p>
+	<p>ordinary() : {{ordinary()}}</p>
+	<p>ordinary(1, '번째') : {{ordinary(1, '번째')}}</p>
+	<p>ordinary(1, '개') : {{ordinary(1, '개')}}</p>
+	<p>ordinary(1, '째') : {{ordinary(1, '째')}}</p>
+	<p>ordinary(2) : {{ordinary(2)}}</p>
+	<p>ordinary(2, '번째') : {{ordinary(2, '번째')}}</p>
+	<p>ordinary(2, '째') : {{ordinary(2, '째')}}</p>
+	<p>cardinary() : {{cardinary}}</p>
+	<p>cardinary(true) : {{cardinary(true)}}</p>
 </div>
 
 <script src="/require/xeno/fmt.ordinal.min.js"></script>
@@ -31,7 +32,7 @@
 					return (type, unit) => { return FmtOrdinal.toOrdinal(this.numeric, type, unit); };
 				},
 				cardinary() {
-					return FmtOrdinal.toCardinal(this.numeric);
+					return pronunOne => FmtOrdinal.toCardinal(this.numeric, pronunOne);
 				}
 			}
 		}).mount('#container');
