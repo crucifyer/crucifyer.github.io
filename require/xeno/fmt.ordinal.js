@@ -28,7 +28,7 @@
 					var d = n.length - i - 1;
 					if(n[i] > '1' || (i > 0 && d % 4 == 0)) r.push(num[n[i] * 1]);
 					if(d % 4 == 0) r.push(digits[d / 4]);
-					if(n[i] != '0') r.push(cardinal[d % 4]);
+					if(n[i] != '0') r.push(cdnal[d % 4]);
 				}
 				r.push(num[n[n.length - 1] * 1]);
 				return r.join('');
