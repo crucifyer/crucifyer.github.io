@@ -22,13 +22,12 @@
 			toCardinal : function(n, pronunOne) {
 				n += '';
 				if(n.length > 80) return '무한';
-				var r = [], cdnal = [...cardinal];
-				if(pronunOne) cdnal[0] = '일';
+				var r = [];
 				for(var i = 0; i < n.length - 1; i ++) {
 					var d = n.length - i - 1;
 					if((n[i] > '1' || pronunOne) || (i > 0 && d % 4 == 0)) r.push(num[n[i] * 1]);
 					if(d % 4 == 0) r.push(digits[d / 4]);
-					if(n[i] != '0') r.push(cdnal[d % 4]);
+					if(n[i] != '0') r.push(cardinal[d % 4]);
 				}
 				r.push(num[n[n.length - 1] * 1]);
 				return r.join('');
