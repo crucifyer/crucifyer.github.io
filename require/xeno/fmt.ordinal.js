@@ -26,7 +26,7 @@
 				if(pronunOne) cdnal[0] = '일';
 				for(var i = 0; i < n.length - 1; i ++) {
 					var d = n.length - i - 1;
-					if(n[i] > '1' || (i > 0 && d % 4 == 0)) r.push(num[n[i] * 1]);
+					if((n[i] > '1' || pronunOne) || (i > 0 && d % 4 == 0)) r.push(num[n[i] * 1]);
 					if(d % 4 == 0) r.push(digits[d / 4]);
 					if(n[i] != '0') r.push(cdnal[d % 4]);
 				}
