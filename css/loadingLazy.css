@@ -1,0 +1,13 @@
+/*
+ Project : https://github.com/crucifyer/loadingLazy
+ License : MIT
+*/
+[loading="lazy"]:not(img,iframe) { background-image: none !important; }
+@keyframes __lazyFadeIn__ {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+.__loading_lazy__ {
+	opacity: 0;
+	animation: __lazyFadeIn__ 1s ease-in-out forwards;
+}
